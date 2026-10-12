@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ЦИФРОЛЕС</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5c38'/%3E%3Ccircle cx='16' cy='14' r='8' fill='%2360b37e'/%3E%3Crect x='14.5' y='20' width='3' height='8' fill='%23e4efe7'/%3E%3C/svg%3E">
 <meta name="description" content="ЦИФРОЛЕС: программное обеспечение для подсчёта деревьев и определения видового состава по снимкам с беспилотных летательных аппаратов.">
 <style>
   :root {
@@ -99,11 +100,16 @@
   nav ul a:hover { text-decoration: underline; }
 
   /* Главный блок */
-  .hero { padding: 40px 0 36px; background: linear-gradient(180deg, #fff 0%, var(--green-050) 100%); }
+  .hero { padding: 48px 0 44px; background: radial-gradient(1200px 500px at 80% 0%, #dcebe1 0%, var(--green-050) 45%, #fff 100%); }
   .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
   .hero .lead { font-size: 21px; color: var(--green-700); font-weight: 600; margin-bottom: .8em; }
   .hero .desc { color: var(--muted); max-width: 56ch; }
-  .hero svg { width: 100%; height: auto; display: block; }
+  .hero-art { margin: 0; }
+  .hero-art img { width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 14px 40px rgba(22, 61, 39, .18); }
+  .hero-art figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
+  .shot.filled { border: 1px solid var(--line); padding: 0; min-height: 0; overflow: hidden; }
+  .shot.filled img { border-radius: 10px; display: block; }
+  .stats + .stats { margin-top: 12px; }
   .btn {
     display: inline-block;
     padding: 10px 18px;
@@ -130,7 +136,9 @@
     border: 1px solid var(--line);
     border-radius: 12px;
     padding: 18px 20px;
+    transition: box-shadow .2s ease, transform .2s ease;
   }
+  .card:hover { box-shadow: 0 8px 24px rgba(22, 61, 39, .10); transform: translateY(-2px); }
   .card h3 { margin-bottom: .35em; }
   .card p { margin: 0; color: var(--muted); font-size: 16px; }
   .card .ico { width: 36px; height: 36px; margin-bottom: 10px; display: block; }
@@ -191,7 +199,7 @@
     nav, .btn { display: none !important; }
     section { padding: 10pt 0; break-inside: avoid; }
     .hero { padding: 10pt 0; background: none; }
-    .hero svg { max-height: 40mm; }
+    .hero-art img { max-height: 60mm; width: auto; }
     .support, .copyright { background: none; }
     .support .logos img { height: 40px; }
     .card, .stat { break-inside: avoid; padding: 8pt 10pt; }
@@ -207,7 +215,6 @@
   <div class="wrap">
     <div class="logos">
       <img src="img/logo-fasie.png" alt="Фонд содействия инновациям">
-      <img src="img/logo-technologii.svg" alt="Федеральный проект «Технологии»">
       <img src="img/logo-putp.svg" alt="Платформа университетского технологического предпринимательства">
     </div>
     <p class="note">Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»</p>
@@ -239,50 +246,10 @@
       <a class="btn" href="#how">Как это работает</a>
       <a class="btn ghost" href="#contacts">Связаться</a>
     </div>
-    <!-- Схема: БПЛА над лесом, кроны с рамками детекции -->
-    <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема: беспилотник снимает лес, программа выделяет кроны деревьев">
-      <rect x="0" y="0" width="520" height="340" rx="16" fill="#e4efe7"/>
-      <!-- небо/земля -->
-      <rect x="20" y="150" width="480" height="170" rx="10" fill="#cfe3d4"/>
-      <!-- кроны -->
-      <g fill="#2f8a53">
-        <circle cx="90" cy="210" r="30"/><circle cx="160" cy="250" r="36"/><circle cx="240" cy="205" r="28"/>
-        <circle cx="320" cy="245" r="34"/><circle cx="400" cy="200" r="30"/><circle cx="450" cy="265" r="26"/>
-        <circle cx="120" cy="290" r="22"/><circle cx="270" cy="285" r="24"/><circle cx="370" cy="295" r="20"/>
-      </g>
-      <g fill="#1f5c38" opacity=".9">
-        <circle cx="200" cy="200" r="18"/><circle cx="350" cy="190" r="16"/><circle cx="60" cy="275" r="16"/><circle cx="470" cy="215" r="14"/>
-      </g>
-      <!-- рамки детекции -->
-      <g fill="none" stroke="#163d27" stroke-width="2" stroke-dasharray="5 4">
-        <rect x="58" y="178" width="64" height="64" rx="4"/>
-        <rect x="122" y="212" width="76" height="76" rx="4"/>
-        <rect x="210" y="175" width="60" height="60" rx="4"/>
-        <rect x="284" y="209" width="72" height="72" rx="4"/>
-        <rect x="368" y="168" width="64" height="64" rx="4"/>
-        <rect x="422" y="237" width="56" height="56" rx="4"/>
-      </g>
-      <!-- подписи -->
-      <g font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#163d27" font-weight="700">
-        <text x="62" y="172">ель</text><text x="126" y="206">сосна</text><text x="214" y="169">берёза</text>
-        <text x="288" y="203">сосна</text><text x="372" y="162">ель</text><text x="426" y="231">осина</text>
-      </g>
-      <!-- БПЛА -->
-      <g transform="translate(260,70)">
-        <line x1="-150" y1="55" x2="150" y2="55" stroke="#163d27" stroke-width="1.5" stroke-dasharray="4 4" opacity=".6"/>
-        <path d="M-150 55 L0 10 L150 55" fill="none" stroke="#163d27" stroke-width="1.5" opacity=".6"/>
-        <rect x="-26" y="-8" width="52" height="18" rx="6" fill="#163d27"/>
-        <line x1="-26" y1="1" x2="-52" y2="-12" stroke="#163d27" stroke-width="4"/>
-        <line x1="26" y1="1" x2="52" y2="-12" stroke="#163d27" stroke-width="4"/>
-        <line x1="-26" y1="1" x2="-52" y2="14" stroke="#163d27" stroke-width="4"/>
-        <line x1="26" y1="1" x2="52" y2="14" stroke="#163d27" stroke-width="4"/>
-        <circle cx="-52" cy="-12" r="9" fill="none" stroke="#163d27" stroke-width="2"/>
-        <circle cx="52" cy="-12" r="9" fill="none" stroke="#163d27" stroke-width="2"/>
-        <circle cx="-52" cy="14" r="9" fill="none" stroke="#163d27" stroke-width="2"/>
-        <circle cx="52" cy="14" r="9" fill="none" stroke="#163d27" stroke-width="2"/>
-      </g>
-      <text x="260" y="40" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="13" fill="#1f5c38">съёмка с высоты 100-150 м</text>
-    </svg>
+    <figure class="hero-art">
+      <img src="img/hero-detection.jpg" alt="Кадр с беспилотника с результатом работы программы: кроны деревьев выделены рамками с подписями пород" width="1600" height="1000">
+      <figcaption>Кадр с высоты 120 м, Удмуртская Республика: программа нашла 196 крон и определила породы (берёза, осина, липа, ель)</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -382,16 +349,21 @@
       <div class="stat"><b>4,5 см</b><span>на пиксель при высоте 120 м</span></div>
       <div class="stat"><b>21</b><span>ортофотоплан с геопривязкой</span></div>
     </div>
+    <div class="stats">
+      <div class="stat"><b>4016</b><span>размеченных крон деревьев</span></div>
+      <div class="stat"><b>6</b><span>классов пород в обучающем наборе</span></div>
+      <div class="stat"><b>94 %</b><span>крон с верно определённой породой на проверочной выборке</span></div>
+      <div class="stat"><b>2 с</b><span>обработка кадра 4000×2250 на станции</span></div>
+    </div>
     <p>Съёмка выполнена в лесничествах Удмуртской Республики: Балезинское, Воткинское, Июльское, Яган. Для каждого участка построены ортофотоплан и цифровая модель поверхности, на которых обучается и проверяется нейросеть.</p>
     <div class="grid cols-2">
       <figure>
-        <div class="shot">[изображение: ортофотоплан участка с выделенными кронами деревьев]</div>
-        <!-- После сборки заменить блок выше на: <div class="shot"><img src="img/screenshot-01-ortho.png" alt="Ортофотоплан с детекциями крон"></div> -->
-        <figcaption>Фрагмент ортофотоплана с результатом детекции крон</figcaption>
+        <div class="shot filled"><img src="img/data-detection.jpg" alt="Кадр смешанного насаждения с выделенными кронами и подписями пород" width="1600" height="900"></div>
+        <figcaption>Смешанное насаждение, Андрейшурское участковое лесничество: 176 крон, густота 97 деревьев на гектар</figcaption>
       </figure>
       <figure>
-        <div class="shot">[изображение: окно программы с таблицей результатов]</div>
-        <!-- После сборки заменить блок выше на: <div class="shot"><img src="img/screenshot-02-results.png" alt="Окно программы с таблицей результатов"></div> -->
+        <div class="shot" id="shot-results">Окно программы с таблицей результатов: снимок экрана добавляется после сборки версии 1.0</div>
+        <!-- заменить на: <div class="shot filled"><img src="img/screenshot-02-results.png" alt="Окно программы с таблицей результатов"></div> -->
         <figcaption>Таблица результатов: число деревьев, породы, густота на гектар</figcaption>
       </figure>
     </div>
@@ -432,7 +404,7 @@
 <section id="contacts">
   <div class="wrap">
     <h2>Контакты</h2>
-    <p>По вопросам пилотного применения программы, сотрудничества и доступа к данным: <a href="mailto:gliry.nice@gmail.com">gliry.nice@gmail.com</a></p>
+    <p>По вопросам пилотного применения программы, сотрудничества и доступа к данным: <a href="mailto:cifroles@gmail.com">cifroles@gmail.com</a></p>
     <p>ООО «ЦИФРОЛЕС», г. Ижевск, Удмуртская Республика.</p>
   </div>
 </section>
@@ -442,7 +414,6 @@
   <div class="wrap">
     <div class="logos">
       <img src="img/logo-fasie.png" alt="Фонд содействия инновациям">
-      <img src="img/logo-technologii.svg" alt="Федеральный проект «Технологии»">
       <img src="img/logo-putp.svg" alt="Платформа университетского технологического предпринимательства">
     </div>
     <p class="note">Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии»</p>
