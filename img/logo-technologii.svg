@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="Федеральный проект «Технологии»">
+  <title>Федеральный проект «Технологии»</title>
+  <rect x="0" y="0" width="360" height="96" rx="8" fill="#ffffff" stroke="#c9d6cc"/>
+  <g transform="translate(14,12)">
+    <rect x="0" y="0" width="72" height="72" rx="10" fill="#1d5fae"/>
+    <rect x="16" y="16" width="18" height="18" rx="3" fill="#ffffff"/>
+    <rect x="38" y="16" width="18" height="18" rx="3" fill="#ffffff" opacity="0.75"/>
+    <rect x="16" y="38" width="18" height="18" rx="3" fill="#ffffff" opacity="0.75"/>
+    <rect x="38" y="38" width="18" height="18" rx="3" fill="#ffffff" opacity="0.5"/>
+  </g>
+  <text x="102" y="40" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="14" fill="#5b6b78">Федеральный проект</text>
+  <text x="102" y="66" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#1d5fae">«Технологии»</text>
+</svg>

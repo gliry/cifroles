@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="Платформа университетского технологического предпринимательства">
+  <title>Платформа университетского технологического предпринимательства</title>
+  <rect x="0" y="0" width="360" height="96" rx="8" fill="#ffffff" stroke="#c9d6cc"/>
+  <g transform="translate(14,12)">
+    <rect x="0" y="0" width="72" height="72" rx="10" fill="#0d6b4f"/>
+    <path d="M14 52 L36 20 L58 52" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22 52 L50 52" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="102" y="32" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#0d6b4f">Платформа университетского</text>
+  <text x="102" y="52" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#0d6b4f">технологического</text>
+  <text x="102" y="72" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#0d6b4f">предпринимательства</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="Фонд содействия инновациям">
+  <title>Фонд содействия инновациям</title>
+  <rect x="0" y="0" width="360" height="96" rx="8" fill="#ffffff" stroke="#c9d6cc"/>
+  <g transform="translate(14,12)">
+    <rect x="0" y="0" width="72" height="72" rx="10" fill="#123a60"/>
+    <path d="M18 50 L36 22 L54 50 Z" fill="#ffffff"/>
+    <circle cx="36" cy="54" r="5" fill="#ffffff"/>
+  </g>
+  <text x="102" y="38" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#123a60">Фонд содействия</text>
+  <text x="102" y="62" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#123a60">инновациям</text>
+  <text x="102" y="82" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="11" fill="#5b6b78">fasie.ru</text>
+</svg>
